@@ -6,19 +6,49 @@
 7 -> да
 1 -> нет
 */
+/*
+
+Вариант: 1
 
 Console.WriteLine("Введите цифру дня недели:");
 int number = Convert.ToInt32(Console.ReadLine());
 
-if (number>7 || number < 1)
+if (number > 7 || number < 1)
 {
-    Console.WriteLine($"Дня недели с такой цифрой {number} не существует");
+    Console.WriteLine($"Дня недели с цифрой - {number}, не существует");
 }
-else if(number > 5 & number < 8)
+else if (number > 5 && number < 8)
 {
     Console.WriteLine($"{number} -> да");
 }
 else
 {
     Console.WriteLine($"{number} -> нет");
+}
+*/
+
+// Вариант: 2
+
+void WeekendYesWeekdayNo (int number)
+{
+if (number > 5 && number<8)
+{
+    Console.WriteLine($"{number} -> да");
+}
+else
+{
+    Console.WriteLine($"{number} -> нет");
+}
+}
+
+Console.WriteLine("Введите цифру дня недели:");
+int number = Convert.ToInt32(Console.ReadLine());
+
+if (number > 7 || number < 1)
+{
+    Console.WriteLine($"Дня недели с цифрой - {number}, не существует");
+}
+else 
+{
+    WeekendYesWeekdayNo(number);
 }
