@@ -15,6 +15,7 @@ void TableCube(int number)
         Console.Write($"{index * index * index}, ");
         index++;
     }
+    Console.WriteLine();
 }
 
 Console.WriteLine($"Введите число: ");
