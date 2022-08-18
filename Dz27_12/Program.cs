@@ -10,23 +10,28 @@ Console.Clear();
 Console.WriteLine($"Введите число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int i = 0;
-int counter1 = 0;
-int Division = 0;
-while(i<number || i>number)
+void AddingDigitsOfANumber(int number)
 {
-    Division = number / 10;
-    counter1++;
+    int i = 0;
+    int counter1 = 0;
+    int Division1 = number;
+    while (i < Division1 || i > Division1)
+    {
+        Division1 = Division1 / 10;
+        counter1++;
+    }
+    int counter2 = 0;
+    int sum = 0;
+    int Remains = 0;
+    int Division2 = number;
+    while (counter2 < counter1)
+    {
+        Remains = Division2 % 10;
+        Division2 = Division2 / 10;
+        sum = sum + Remains;
+        counter1 = counter1 - 1;
+    }
+    Console.WriteLine($"Сумма цифр числа {number} = {sum} ");
 }
-int counter2 = 0;
-int sum = 0;
-int Remains = 0;
-while(counter2<counter1)
-{
-    Remains = number % 10;
-    number = number / 10;
-    sum = sum + Remains;
-    counter1 = counter1 - 1;
-    Console.WriteLine(sum);
-}
-Console.WriteLine(sum);
+
+AddingDigitsOfANumber(number);
