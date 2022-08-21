@@ -16,13 +16,13 @@ void RandomArray(int[] array, int minValue, int maxValue)
     {
         array[i] = new Random().Next(minValue, maxValue+1);
         Console.Write($"{array[i]} ");
-        if(i % 2 == 0)
+        if(i % 2 != 0)
         {
             sum = sum + array[i];
         }
     }
     Console.WriteLine();
-    Console.WriteLine($"Сумма элементов массива с чётным индексом = {sum} ");
+    Console.WriteLine($"Сумма элементов массива с нечётным индексом = {sum} ");
     Console.WriteLine();
 }
 
