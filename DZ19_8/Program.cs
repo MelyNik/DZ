@@ -8,51 +8,113 @@
 
 /* Второй вариант
 
-int QuantityIndex(int number)
+void PalindromeOfAnyNumber(int number)
 {
-    int index = 0;
-    while (number > 1)
+    if (number < 999 && number > -999)
     {
-        number = number / 10;
-        index = index + 1;
-    }
-    if (number == 1)
-    {
-        index = index + 1;
-    }
-    return index;
-}
-
-void ConfirmatioPoly(int number, int index)
-{
-    int stage = number;
-    while (index > 1)
-    {
-        index = index - 1;
-        stage = stage / 10;
-    }
-    if (stage / 10 == number % 10)
-    {
-        int stage2 = number;
-        while (stage2 > 0)
+        if (number / 10 == 0)
         {
-            stage2 = number / 100;
+            Console.WriteLine($"Число {number} не является палиндромом");
+        }
+        else if (number / 10 == number % 10)
+        {
+            Console.WriteLine($"Число {number} является палиндромом");
+        }
+        else if (number == 10 || number == -10)
+        {
+            Console.WriteLine($"Число {number} не является палиндромом");
+        }
+        else if (number / 100 == number % 10)
+        {
+            Console.WriteLine($"Число {number} является палиндромом");
+        }
+        else
+        {
+            Console.WriteLine($"Число {number} не является палиндромом");
+        }
+    }
+    else
+    {
+        int i = 0;
+        int numberA = number;
+        while (numberA > 0)
+        {
+            numberA = numberA / 10;
+            i++;
+        }
+        if (i % 2 == 0)
+        {
+            int j = i / 2;
+            int k = j;
+            int h = j - 1;
+            while (j > 1)
+            {
+                if ((number / (long)Math.Pow(10, k)) % 10 == (number / (long)Math.Pow(10, h)) % 10) 
+                {
+                    j = j - 1;
+                    h = h - 1;
+                    k = k + 1;
+                    if (h < 1)
+                    {
+                        if (number / (long)Math.Pow(10, k) == number % 10)
+                        {
+                            Console.WriteLine($"Число {number} является палиндромом");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Число {number} не является палиндромом");
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Число {number} не является палиндромом");
+                    break;
+                }
+            }
+        }
+        else
+        {
+            int j = i / 2;
+            int k = j + 1;
+            int h = j - 1;
+            while (j > 1)
+            {
+                if ((number / (long)Math.Pow(10, k)) % 10 == (number / (long)Math.Pow(10, h)) % 10)
+                {
+                    j = j - 1;
+                    h = h - 1;
+                    k = k + 1;
+                    if (h < 1)
+                    {
+                        if (number / (long)Math.Pow(10, k) == number % 10)
+                        {
+                            Console.WriteLine($"Число {number} является палиндромом");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Число {number} не является палиндромом");
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Число {number} не является палиндромом");
+                    break;
+                }
+            }
         }
     }
 }
 
-Console.WriteLine($"Введите число:");
+Console.WriteLine($"Введите число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-if (number < 10 || number < -10)
-{
-    Console.WriteLine($"Число {number} не является палиндромом");
-}
-else
-{
-    int index = QuantityIndex(number);
-    ConfirmatioPoly(number, index);
-}
+PalindromeOfAnyNumber(number);
 */
 
 // Первый вариант

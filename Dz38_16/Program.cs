@@ -12,12 +12,7 @@ void RandomArray(double[] array, int minValue, int maxValue)
     Console.Write($"Создан массив: ");
     for(int i=0; i<array.Length; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-        double number;
-        Random rnd = new Random();
-        number = rnd.NextDouble();
-        array[i] = array[i] * number;
-        array[i] = Math.Round(array[i], 2);
+        array[i] =Math.Round(new Random().NextDouble()*5, 2);// NextDouble() - означает от 0 до 1, если добавить * 5, то от 0 до 5.
         Console.Write($"{array[i]} ");
     }
     Console.WriteLine();
@@ -38,7 +33,7 @@ void DifferenceMaxElementAndMinElementArray(double[] array)
             min = array[i];
         }
     }
-    Console.WriteLine($"Разница максимального - {max} и минимального - {min} элементов массива = {max - min}");
+    Console.WriteLine($"Разница максимального - {max} и минимального - {min} элементов массива = {Math.Round(max - min, 2)}");
 }
 
 RandomArray(arr, 0, 99);
