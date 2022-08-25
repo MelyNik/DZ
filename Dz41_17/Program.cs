@@ -5,36 +5,35 @@
 1, -7, 567, 89, 223-> 3
 */
 
-Console.WriteLine("Введите число: ");
-int number1 = Convert.ToInt32(Console.ReadLine());
-int number2 = int.Parse(Console.ReadLine());
-int number3 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
-
-void NumberM(int number1, int number2, int number3)
+int[] EnteringNumbers(int length)
 {
-    int i = 0;
-    int j = 0;
-    while (i < 3)
+    int[] array = new int[length];
+    for(int i = 0; i<length; i++)
     {
-        if (number1 > 0)
-        {
-            j++;
-            number1 = number1 - number1;
-        }
-        else if (number2 > 0)
-        {
-            j++;
-            number2 = number2 - number2;
-        }
-        else if (number3 > 0)
-        {
-            j++;
-            number3 = number3 - number3;
-        }
-        i++;
-    }
-    Console.WriteLine($"{j}");
+        Console.Write($"Введите число {i+1}: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    } 
+    return array;
 }
 
-NumberM(number1, number2, number3);
+int NumberOfPositiveNumbers(int[] array)
+{
+    int j = 0;
+    for(int i =0; i<array.Length; i++)
+    {
+        if(array[i]>0)
+        {
+            j++;
+        }
+    }
+    return j;
+}
+
+Console.Write($"Введи количество чисел готовых к вводу: ");
+int count = Convert.ToInt32(Console.ReadLine());
+
+int[] array = EnteringNumbers(count);
+int quantity = NumberOfPositiveNumbers(array);
+Console.WriteLine($"Введено чисел больше 0 -> {quantity}");
+
+
