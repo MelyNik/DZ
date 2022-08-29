@@ -9,6 +9,18 @@
 */
 
 
+double[,] GetArray(int line, int columns, int min, int max)
+{
+    double[,] array = new double[line, columns];
+    for (int i =0; i<line; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            array[i, j] = Math.Round(new Random().NextDouble()*100,1);
+        }
+    }
+    return array;
+}
 
 void PrintArray(double[,] array)
 {
@@ -16,7 +28,6 @@ void PrintArray(double[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = Math.Round(new Random().NextDouble()*100, 0);
             Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
@@ -43,7 +54,8 @@ void ProductArrayStrings(double[,] array)
 
 int line = new Random().Next(5, 10);
 int column = new Random().Next(5, 10);
-double[,] array = new double[line, column];
+double[,] array = GetArray(line,column,-99,100);
 
 PrintArray(array);
+Console.WriteLine();
 ProductArrayStrings(array);

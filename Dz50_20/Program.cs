@@ -11,17 +11,29 @@
 */
 
 
-void TwoDimensionalArray(int[,] array)
+int[,] TwoDimensionalArray(int line, int columns, int min, int max)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    int[,] array = new int[line, columns];
+    for (int i = 0; i < line; i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < columns; j++)
         {
-            array[i, j] = new Random().Next(100);
-            Console.Write($"{array[i, j]} ");
+            array[i, j] = new Random().Next(min, max);
         }
         Console.WriteLine();
     }
+    return array;
+}
+void PrintArray(int[,] array)
+{
+   for (int i = 0; i <array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    } 
 }
 
 void FindingCoordinatesTwoDimensionalArray(int[,] array, int line, int column)
@@ -54,7 +66,6 @@ int column = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine();
 
-int[,] array = new int[9, 9];
-
-TwoDimensionalArray(array);
+int[,] array = TwoDimensionalArray(9,9,-99,100);
+PrintArray(array);
 FindingCoordinatesTwoDimensionalArray(array, line, column);

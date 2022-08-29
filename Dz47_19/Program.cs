@@ -8,21 +8,34 @@ m = 3, n = 4.
 */
 
 
-int m = new Random().Next(3, 6);
-int n = new Random().Next(3, 6);
-double[,] array = new double[m, n];
+double[,] GetArray(int line, int columns)
+{
+    double[,] array = new double[line, columns];
+    for (int i = 0; i < line; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            array[i, j] = Math.Round(new Random().NextDouble() * 5, 1);
+        }
+    }
+    return array;
+}
 
-void TwoDimensionalArray(double[,] array)
+void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = Math.Round(new Random().NextDouble() * 5, 1);
             Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
     }
 }
 
-TwoDimensionalArray(array);
+int m = new Random().Next(3, 6);
+int n = new Random().Next(3, 6);
+
+double[,] array = GetArray(m,n);
+
+PrintArray(array);
