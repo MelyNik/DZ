@@ -32,7 +32,7 @@ Console.WriteLine();
 if (m == n)
 {
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"ОШИБКА!!! Между {m} и {n} нет промежутка натуральных чисел.");
+    Console.WriteLine($"ОШИБКА!!! Между {m} и {n} нет промежутке натуральных чисел.");
     Console.ResetColor();
 }
 else
