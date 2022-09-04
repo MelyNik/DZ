@@ -61,13 +61,14 @@ int[,] CompositionMatrix1(int[,] matrix1, int[,] matrix2)
             {
                 sum = sum + matrix1[i, c] * matrix2[c, k];
             }
-            result[l, j] = sum;
+            result[i, j] = sum;
             k++;
         }
     }
     return result;
 }
 
+Console.Clear();
 Random r = new Random();
 int lines1Matrix = r.Next(3, 6);
 int columns1Matrix = r.Next(3, 6);
