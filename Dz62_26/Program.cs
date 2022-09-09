@@ -66,3 +66,8 @@ int columns = r.Next(3,6);
 
 int[,] array = GetArray(lines, columns);
 PrintArray(array);
+
+
+
+
+

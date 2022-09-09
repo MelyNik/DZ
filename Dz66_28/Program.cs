@@ -5,7 +5,7 @@
 M = 1; N = 15 -> 56
 M = 4; N = 8. -> 18
 */
-
+/*
 int[] DeterminationMaximumNumber(int m, int n)
 {
     int[] array = new int[2];
@@ -61,4 +61,66 @@ else
         }
         Console.WriteLine($"Cумма чётных чисел натуральных элементов в промежутке от {array[0]} до {array[1]} = {result} \t");
     }
+}
+*/
+
+// Рекурсия:
+
+int SumDigitOfNumber1(int m, int n)
+{
+    if (n <= m)
+    {
+        return n + SumDigitOfNumber1(m, n + 2);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int SumDigitOfNumber2(int m, int n)
+{
+    if (m <= n)
+    {
+        return m + SumDigitOfNumber2(m+2,n);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+Random r = new Random();
+int m = r.Next(1, 10);
+Console.WriteLine(m);
+int n = r.Next(1, 10);
+Console.WriteLine(n);
+
+if (m > n)
+{
+    if (n % 2 == 0)
+    {
+        Console.WriteLine(SumDigitOfNumber1(m, n));
+    }
+    else
+    {
+        n++;
+        Console.WriteLine(SumDigitOfNumber1(m, n));
+    }
+}
+else if (n > m)
+{
+    if (m % 2 == 0)
+    {
+        Console.WriteLine(SumDigitOfNumber2(m, n));
+    }
+    else
+    {
+        m++;
+        Console.WriteLine(SumDigitOfNumber2(m, n));
+    }
+}
+else
+{
+    Console.WriteLine(m);
 }

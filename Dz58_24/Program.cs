@@ -9,20 +9,7 @@
 15 18
 */
 
-int[,] GetArray1(int line, int column, int min, int max)
-{
-    int[,] array = new int[line, column];
-    for (int i = 0; i < line; i++)
-    {
-        for (int j = 0; j < column; j++)
-        {
-            array[i, j] = new Random().Next(min, max);
-        }
-    }
-    return array;
-}
-
-int[,] GetArray2(int line, int column, int min, int max)
+int[,] GetArray(int line, int column, int min, int max)
 {
     int[,] array = new int[line, column];
     for (int i = 0; i < line; i++)
@@ -80,8 +67,8 @@ Console.WriteLine($"Строк второй матрицы = {lines2Matrix}, с�
 
 if (columns1Matrix == lines2Matrix)
 {
-    int[,] matrixOne = GetArray1(lines1Matrix, columns1Matrix, 1, 10);
-    int[,] matrixTwo = GetArray2(lines2Matrix, columns2Matrix, 1, 10);
+    int[,] matrixOne = GetArray(lines1Matrix, columns1Matrix, 1, 10);
+    int[,] matrixTwo = GetArray(lines2Matrix, columns2Matrix, 1, 10);
 
     PrintArray(matrixOne);
     Console.WriteLine();
